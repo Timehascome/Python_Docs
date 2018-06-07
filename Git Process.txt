@@ -46,3 +46,5 @@ Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/cubeton/mynewrepository.git
  * [new branch]      master -> master
 Branch master set up to track remote branch master from origin.
+
+Modifed Line
