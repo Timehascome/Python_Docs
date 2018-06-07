@@ -1,0 +1,138 @@
+Git Configurations:
+# sets up Git with your name
+git config --global user.name "<Your-Full-Name>"
+
+# sets up Git with your email
+git config --global user.email "<your-email-address>"
+
+# makes sure that Git output is colored
+git config --global color.ui auto
+
+# displays the original state in a conflict
+git config --global merge.conflictstyle diff3
+
+git config --list
+
+Configuring the editor for git: (In this case Notepadd++)
+git config core.editor "'C:\Program Files (x86)\Notepad++\notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+Git Commands:
+===========================================================================================================
+To make a directory a git repository
+$ git init
+
+To clone a from cloud to local repository
+$ git clone
+
+To know the state of your files, the working directory and the repository
+$ git status
+
+To add the given file to the staging index
+$ git add <file1> <file2> … <fileN>
+
+To add all the unstaged files to the staging index using (.)
+$ git add .
+
+This command removes the given files from the staging index.
+$ git rm --cached <filename>
+
+The git log command is used to display all of the commits of a repository
+By default, this commit displays •the SHA  •the author  •the date  •and the message of every commit in the repository.
+$ git log
+
+The --oneline flag is used to alter how git log displays information:
+This command:  •lists one commit per line  •shows the first 7 characters of the commit's SHA  •shows the commit's message
+$ git log --oneline
+
+The git log command has a flag that can be used to display the files that have been changed in the commit, as well as the number of lines that have been added or deleted.
+This command:  •displays the file(s) that have been modified  •displays the number of lines that have been added/removed  •displays a summary line with the total number of modified files and lines that have been added/removed.
+"stat" is short for "statistics"
+$ git log --stat
+
+This command adds the following to the default output:  •displays the files that have been modified  •displays the location of the lines that have been added/removed  •displays the actual changes that have been made
+"p" is short for "patch"
+$ git log -p
+
+By supplying a SHA, the git log -p command will start at that commit
+It will also show all of the commits that were made prior to the supplied SHA.
+$ git log -p <SHA of a commits>
+
+This command will only display the most recent commit;
+This command displays   •the commit  •the author  •the date  •the commit message  •the patch information
+$ git show
+
+This commit will display the commit of the SHA provided in the arguments;
+$ git show <SHA of a commit>
+
+The command git show can be combined with most of the other flags:
+• --stat - to show the how many files were changed and the number of lines that were added/removed
+• -p or --patch - this the default, but if --stat is used, the patch won't display, so pass -p to add it again
+• -w - to ignore changes to whitespace
+
+This command is used to add a tag with the repository's tags
+"-a" is used to annotate the tag, without it the tag would be called as lightweight tag i.e without any tag annotation.
+$ git tag -a v1.0
+
+This command displays all the tags that are in the repository
+$ git tag
+
+This command deletes the git tag
+$ git tag -d v1.0
+
+This command adds the tag to the commit provided by the SHA.
+$ git tag -a V1.0 <SHA>
+
+Branching :
+To list all branches
+$ git branch
+
+To create a new branch named "footer-fix"
+$ git branch footer-fix
+
+To delete the branch named "footer-fix"
+$ git branch -d footer-fix
+
+The 'git diff' command will show you the changes that have not yet been committed.
+$ git diff
+
+the git checkout command can actually create a new branch, too? If you provide the -b flag, you can create a branch and switch to it all in one command.
+$ git checkout -b branch-name
+
+the git checkout command to create our new footer branch and have this footer branch start at the same location as the master branch:
+$ git checkout -b footer master
+
+The --graph flag adds the bullets and lines to the leftmost part of the output.
+This shows the actual branching that's happening. The --all flag is what displays all of the branches in the repository.
+Running this command will show all branches and commits in the repository: 
+$ git log --oneline --decorate --graph --all
+
+Merging :
+
+This command merges the branch with current branch.
+$ git merge <name-of-branch-to-merge-in>
+
+Undoing Changes:
+
+This git command is used to modify the last commit
+$ git commit --amend
+
+the git revert command is used to reverse a previously made commit:
+Reverting creates a new commit that reverts or undos a previous commit.
+$ git revert <SHA-of-commit-to-revert>
+
+The git Resetting erases commit;
+$ git reset <reference-to-commit>
+Git keeps track of the data that is erased for 30 days and to access the erased content the following command is used.
+$ git reflog
+
+
+To push the commits to repository in the cloud (Typically to github)
+$ git push
+
+This command is used to add a remote 
+$ git remote add <remote-name> <git-hub repository url>
+Example :
+$ git remote add origin https://github.com/Aditya22081994/AWS-Docs-and-Git-Commands.git
+
+This command is used to push the current branch and set the remote as upstream
+$ git push --set-upstream origin master
